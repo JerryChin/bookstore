@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
@@ -16,6 +16,10 @@
         <spring.data.version>1.9.4.RELEASE</spring.data.version>    <!-- require Spring Framework in version 4.1.9.RELEASE or better -->
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <compile.level>1.8</compile.level>
+        <logback.version>1.1.1</logback.version>
+        <jcloverslf4j.version>1.7.6</jcloverslf4j.version>
+        <aspectj.version>1.7.4</aspectj.version>
+
     </properties>
     <dependencies>
         <!-- logging -->
@@ -41,6 +45,12 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Spring -->
         <dependency>
@@ -73,6 +83,20 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+        <!-- AspectJ dependencies -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+
         <!-- CGLIB is required to process @Configuration classes -->
         <dependency>
             <groupId>cglib</groupId>
@@ -103,6 +127,11 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.12.1.GA</version>
+        </dependency>
         <!-- Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -122,13 +151,17 @@
             <version>1.4</version>
         </dependency>
 
+        <!-- LogBack dependencies -->
         <dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.12.1.GA</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${jcloverslf4j.version}</version>
+        </dependency>
     </dependencies>
 
 

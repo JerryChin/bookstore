@@ -1,9 +1,6 @@
 package com.example.init;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
@@ -15,6 +12,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @ComponentScan("com.example") //Specifies which package to scan
 @EnableWebMvc //Enables to use Spring's annotations in the code
 @Import({ WebStaticResConfig.class, InfrastructureConfig.class})
+@EnableAspectJAutoProxy
 public class WebAppConfig {
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
