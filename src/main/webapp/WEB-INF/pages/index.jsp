@@ -5,8 +5,11 @@
 
 <html>
 <body>
-
-    <p color="red">${message}</p>
+<c:if test="${not empty message}">
+    <div style="width: 400px; height: 40px; padding: 5px;">
+        <p style="color:red; border:1px solid gray; background-color: #EAF2D3; border-radius:3px">${message}</p>
+    </div>
+</c:if>
 
 <h1>Home page</h1>
 <p>Welcome to my bookstore ;)</p>
