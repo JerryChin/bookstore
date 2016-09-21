@@ -61,7 +61,7 @@ public class ShopController {
 
     @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
     public ModelAndView editShop(Book book,
-                                 @PathVariable Integer id,
+                                 @PathVariable String id,
                                  final RedirectAttributes redirectAttributes) throws BookNotFound {
 
         ModelAndView mav = new ModelAndView("redirect:/");
